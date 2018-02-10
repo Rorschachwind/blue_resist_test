@@ -1,0 +1,69 @@
+<html>
+	{% include 'analysis/header.html' %}
+	<body>
+		{% include 'bdrsite/nav.html' %}
+		<!-- Main -->
+		<section id="main" class="wrapper">
+			<div class="container">
+				<header class="major special">
+					<p style="color:#0680CD">{{query}}</p>
+					<br>
+					<p>Rows Returned: {{num_rows}}</p>
+					<!-- Back Button -->
+					<br>
+					<ul class="actions">
+						<li><a href="/analysis" class="button special">Back</a></li>
+					</ul>
+				</header>
+			</div>	
+
+			<!-- visualization, hardcoded to query 4 for now-->
+			{% if preselected %}
+			<div class="container">
+				<!-- <iframe src="https://anniekatelyntang.shinyapps.io/query4/" style="border: 2px solid #0680CD; width: 100%; height: 800px;"> -->
+				<iframe src="https://anniekatelyntang.shinyapps.io/query4/" style="width: 100%; height: 800px;">
+					It looks like your browser doesn't support iframes. 
+				</iframe>
+			</div>
+			{% endif %}		
+
+			<!-- returned data -->
+			<div class="container">
+				<div class="table-wrapper">
+					<table>
+						<thead>
+							<tr>
+								{% if colnames %}
+									{% for colname in colnames %}
+										<th>{{ colname }}</th>
+							    	{% endfor %}
+								{% else %}
+									<th>Could not find column headers.</th>
+								{% endif %}
+								
+							</tr>
+						</thead>
+						<tbody>
+							{% if result %}
+								{% for row in result%}
+									<tr>
+									{% for key, value in row.items %}
+										<td>{{ value }}</td>
+									{% endfor %}
+									</tr>
+								{% endfor %}
+							{% else %}
+								<tr>
+							        <td>Zero rows found.</td>
+							    </tr>
+							{% endif %}
+							
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</section>
+		{% include 'bdrsite/footer.html' %}
+		{% include 'bdrsite/scripts.html' %}
+	</body>
+</html>
