@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+#-*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from django.shortcuts import render
 from django.http import HttpResponse
@@ -67,7 +67,7 @@ def get_query(request):
 			result = execute_query(query)
 			colnames = result[0].keys
 			num_rows = len(result)
-			return render(request, 'analysis/query.html', {'query':query, 'num_rows':num_rows, 'result':result, 'colnames':colnames})
+			return render(request, 'analysis/your-query.html', {'query':query, 'num_rows':num_rows, 'result':result, 'colnames':colnames})
 		except:
 			return HttpResponse("There were one or more errors????????? in your query. Please try again.")
 	else:
@@ -75,16 +75,31 @@ def get_query(request):
 
 #test_query
 def test_query(request):
-         sql_form=FillQueryForm(request.POST)
-         if sql_form.is_valid():
-                 select = sql_form.cleaned_data['select']
-                 result = execute_query(select)
-#        from_field = sql_form.cleaned_data['from_field']
-#         where = sql_form.cleaned_data['where']
-#         limit = sql_form.cleaned_data['limit']
-#         query = 'SELECT ' + select + ' FROM ' + from_field + ' WHERE ' + where + ' LIMIT ' + limit
+#         sql_form=FillQueryForm(request.POST)
+#         if sql_form.is_valid():
+#                 select = sql_form.cleaned_data['select']
+#                 result = execute_query(select)
+#                 from_field = sql_form.cleaned_data['from_field']
+#                 where = sql_form.cleaned_data['where']
+#                 limit = sql_form.cleaned_data['limit']
+#                 query = 'SELECT ' + select + ' FROM ' + from_field + ' WHERE ' + where + ' LIMIT ' + limit
+                 try:
+#                        result = execute_query(query)
+                        result = [{'parent_id': None, 'id': 54360982}, {'parent_id': None, 'id': 54360880}]
+                        colnames = result[0].keys
+                        num_rows = len(result)
+#                        return render(request, 'analysis/your-query.html', {'query':'abcde', 'num_rows':'5', 'result':'2345', 'colnames':'23333'})
+         
+#         result=[{'parent_id': None, 'id': 54360982}, {'parent_id': None, 'id': 54360880}]
+#         colnames = result[0].keys
+#         num_rows = len(result)
+                        return render(request, 'analysis/your-query.html', {'num_rows':num_rows, 'result':result, 'colnames':colnames})
+                 except:
+                        return HttpResponse("There were one or more errors????????? in your query. Please try again.")
+#         else:
+#                return HttpResponse("Could not execute query.")
 #         query=str(sql_form)
-         return render(request,'analysis/query.html',{result})
+#         return render(request,'analysis/your-query.html',{'colnames':'233333'})
         
 # GOOGLE MAP 
 def get_map(request):

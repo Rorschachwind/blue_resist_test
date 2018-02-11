@@ -25,7 +25,9 @@ STATIC_ROOT = os.path.join(PROJECT_DIR, 'static') # /home/bluedevilresistome/bdr
 SECRET_KEY = 'aubj$08mbsrcnb#d-h_#u25s-ksr$=fj+pl)0cl*+hc$^m(&hr'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+#change from True to False for test
 DEBUG = True
+
 
 ALLOWED_HOSTS = ['vcm-3101.vm.duke.edu','localhost','127.0.0.1']
 
