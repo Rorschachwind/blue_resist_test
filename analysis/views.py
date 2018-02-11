@@ -69,10 +69,23 @@ def get_query(request):
 			num_rows = len(result)
 			return render(request, 'analysis/query.html', {'query':query, 'num_rows':num_rows, 'result':result, 'colnames':colnames})
 		except:
-			return HttpResponse("There were one or more errors in your query. Please try again.")
+			return HttpResponse("There were one or more errors????????? in your query. Please try again.")
 	else:
 		return HttpResponse("Could not execute query.")
 
+#test_query
+def test_query(request):
+         sql_form=FillQueryForm(request.POST)
+         if sql_form.is_valid():
+                 select = sql_form.cleaned_data['select']
+                 result = execute_query(select)
+#        from_field = sql_form.cleaned_data['from_field']
+#         where = sql_form.cleaned_data['where']
+#         limit = sql_form.cleaned_data['limit']
+#         query = 'SELECT ' + select + ' FROM ' + from_field + ' WHERE ' + where + ' LIMIT ' + limit
+#         query=str(sql_form)
+         return render(request,'analysis/query.html',{result})
+        
 # GOOGLE MAP 
 def get_map(request):
 	return render(request, 'analysis/map.html')

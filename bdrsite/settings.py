@@ -79,12 +79,14 @@ WSGI_APPLICATION = 'bdrsite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'bdr',
-        'USER': 'postgres',
-        'PASSWORD': 'redadmin',
-        'HOST' : 'bluedevilresistome-599.postgres.pythonanywhere-services.com',
-        'PORT': '10599',
+         'ENGINE':'django.db.backends.sqlite3',
+         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#        'ENGINE': 'django.db.backends.postgresql',
+#        'NAME': 'bdr',
+#        'USER': 'postgres',
+#        'PASSWORD': 'redadmin',
+#        'HOST' : 'bluedevilresistome-599.postgres.pythonanywhere-services.com',
+#        'PORT': '10599',
     }
 }
 

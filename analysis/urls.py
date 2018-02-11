@@ -9,3 +9,5 @@ urlpatterns = [
     url(r'^your-query/', views.get_query),
     url(r'^map/', views.get_map),
 ]
+
+# change get_query to test_query
