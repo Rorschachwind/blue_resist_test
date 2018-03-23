@@ -75,6 +75,10 @@ def get_query(request):
 
 #test_query
 def test_query(request):
+	 ID ='7'
+         media = 'mac'
+	 temp = 'rt'
+	 ctx = '0'
          sql_form=FillQueryForm(request.POST)
          if sql_form.is_valid():
                  select = sql_form.cleaned_data['select']
@@ -83,6 +87,24 @@ def test_query(request):
                  where = sql_form.cleaned_data['where']
                  limit = sql_form.cleaned_data['limit']
                  query = {'SELECT':[select], 'FROM':[from_field], 'WHERE':[where], 'LIMIT':[limit]}
+		
+		#add a new test data to csv file
+		 with open('/home/xp14/Blue_project/blue_resist_test/data/%s.csv'%(from_field)) as csvfile:
+    			reader = csv.DictReader(csvfile)
+    			fieldnames = reader.fieldnames
+		 with open('/home/xp14/Blue_project/blue_resist_test/data/%s.csv'%(from_field),'a') as csvfile:  
+    			csvfile.write('\n')
+    			csvfile.close()
+    
+		 with open('/home/xp14/Blue_project/blue_resist_test/data/%s.csv'%(from_field),'a') as csvfile:   
+#    fieldnames = ['Agar_ID','Media','Temp','CTX']
+    			spamwriter = csv.DictWriter(csvfile,fieldnames=fieldnames)
+#    spamwriter.writeheader() #this will add the fieldname as title again
+
+# add new info
+    		 	spamwriter.writerow({'Agar_ID':'%s'%(ID),'Media':'%s'%(media),'Temp':'%s'%(temp),'CTX':'%s'%(ctx)})
+    			csvfile.close()
+		 
                  book = xlwt.Workbook()
                  sheet1 = book.add_sheet('test666')
                  row = 0
