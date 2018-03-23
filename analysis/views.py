@@ -7,7 +7,7 @@ import inspect
 from .forms import CustomQueryForm, QueryDropdownForm, FillQueryForm, MapForm
 from .models import QueryDropdown
 from django.db import connection
-
+import xlwt
 
 query_dict = {'1':'SELECT site_id, cfu, ctx FROM plate JOIN agar ON plate.agar_id = agar.agar_id', '2':'two'}
 
@@ -75,13 +75,28 @@ def get_query(request):
 
 #test_query
 def test_query(request):
-#         sql_form=FillQueryForm(request.POST)
-#         if sql_form.is_valid():
-#                 select = sql_form.cleaned_data['select']
+         sql_form=FillQueryForm(request.POST)
+         if sql_form.is_valid():
+                 select = sql_form.cleaned_data['select']
 #                 result = execute_query(select)
-#                 from_field = sql_form.cleaned_data['from_field']
-#                 where = sql_form.cleaned_data['where']
-#                 limit = sql_form.cleaned_data['limit']
+                 from_field = sql_form.cleaned_data['from_field']
+                 where = sql_form.cleaned_data['where']
+                 limit = sql_form.cleaned_data['limit']
+                 query = {'SELECT':[select], 'FROM':[from_field], 'WHERE':[where], 'LIMIT':[limit]}
+                 book = xlwt.Workbook()
+                 sheet1 = book.add_sheet('test666')
+                 row = 0
+                 col = 0
+                 for key in query.keys():
+                     row += 1
+                     sheet1.write(row,col,key)
+                     for item in query[key]:
+                         sheet1.write(row,col+1,item)
+                         row += 1
+
+#                 for index, value in query.items():
+#                      sheet1.write(index,value)
+                 book.save('output.xls')
 #                 query = 'SELECT ' + select + ' FROM ' + from_field + ' WHERE ' + where + ' LIMIT ' + limit
                  try:
 #                        result = execute_query(query)
