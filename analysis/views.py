@@ -91,30 +91,35 @@ def test_query(request):
 		
 		#add a new test data to csv file
 		result = []#creat empty list for showing on web
-		 with open('/home/xp14/Blue_project/blue_resist_test/data/%s.csv'%(from_field)) as csvfile:
-    			reader = csv.DictReader(csvfile)
-    			fieldnames = reader.fieldnames
+		try:
+			with open('/home/xp14/Blue_project/blue_resist_test/data/%s.csv'%(from_field)) as csvfile:
+    				reader = csv.DictReader(csvfile)
+    				fieldnames = reader.fieldnames
 			# create a new csv file and write content
-    			with open('/home/xp14/Blue_project/blue_resist_test/data/new_test.csv','a') as newfile:
-				newwriter = csv.DictWriter(newfile,fieldnames=fieldnames)
-				newwriter.writeheader()
-        			for row in reader:
-					result.append(row)
-					newwriter.writerow(row)
-        			newfile.close()
-				
+    				with open('/home/xp14/Blue_project/blue_resist_test/data/new_test.csv','a') as newfile:
+					newwriter = csv.DictWriter(newfile,fieldnames=fieldnames)
+					newwriter.writeheader()
+        				for row in reader:
+						result.append(row)
+						newwriter.writerow(row)
+        				newfile.close()
+		except:
+			return HttpResponse("Invalid name in your query. Please try again.")
+							
 #		 with open('/home/xp14/Blue_project/blue_resist_test/data/%s.csv'%(from_field),'a') as csvfile:  
 #    			csvfile.write('\n')
 #    			csvfile.close()
-    
-		 with open('/home/xp14/Blue_project/blue_resist_test/data/%s.csv'%(from_field),'a') as csvfile:   
+          	try:
+			with open('/home/xp14/Blue_project/blue_resist_test/data/%s.csv'%(from_field),'a') as csvfile:   
 #    fieldnames = ['Agar_ID','Media','Temp','CTX']
-    			spamwriter = csv.DictWriter(csvfile,fieldnames=fieldnames)
+    				spamwriter = csv.DictWriter(csvfile,fieldnames=fieldnames)
 #    spamwriter.writeheader() #this will add the fieldname as title again
 
 # add new info
-    		 	spamwriter.writerow({'Agar_ID':'%s'%(ID),'Media':'%s'%(media),'Temp':'%s'%(temp),'CTX':'%s'%(ctx)})
-    			csvfile.close()
+    		 		spamwriter.writerow({'Agar_ID':'%s'%(ID),'Media':'%s'%(media),'Temp':'%s'%(temp),'CTX':'%s'%(ctx)})
+    				csvfile.close()
+		except:
+			return HttpResponse("Invalid name in your query. Please try again.")
 
 # save to a new xls (maybe no use)
 #                 book = xlwt.Workbook()
