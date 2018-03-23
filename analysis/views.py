@@ -8,6 +8,7 @@ from .forms import CustomQueryForm, QueryDropdownForm, FillQueryForm, MapForm
 from .models import QueryDropdown
 from django.db import connection
 import xlwt
+import csv
 
 query_dict = {'1':'SELECT site_id, cfu, ctx FROM plate JOIN agar ON plate.agar_id = agar.agar_id', '2':'two'}
 
@@ -92,9 +93,9 @@ def test_query(request):
 		 with open('/home/xp14/Blue_project/blue_resist_test/data/%s.csv'%(from_field)) as csvfile:
     			reader = csv.DictReader(csvfile)
     			fieldnames = reader.fieldnames
-		 with open('/home/xp14/Blue_project/blue_resist_test/data/%s.csv'%(from_field),'a') as csvfile:  
-    			csvfile.write('\n')
-    			csvfile.close()
+#		 with open('/home/xp14/Blue_project/blue_resist_test/data/%s.csv'%(from_field),'a') as csvfile:  
+#    			csvfile.write('\n')
+#    			csvfile.close()
     
 		 with open('/home/xp14/Blue_project/blue_resist_test/data/%s.csv'%(from_field),'a') as csvfile:   
 #    fieldnames = ['Agar_ID','Media','Temp','CTX']
