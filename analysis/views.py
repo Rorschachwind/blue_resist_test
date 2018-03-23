@@ -90,9 +90,19 @@ def test_query(request):
                  query = {'SELECT':[select], 'FROM':[from_field], 'WHERE':[where], 'LIMIT':[limit]}
 		
 		#add a new test data to csv file
+		result = []#creat empty list for showing on web
 		 with open('/home/xp14/Blue_project/blue_resist_test/data/%s.csv'%(from_field)) as csvfile:
     			reader = csv.DictReader(csvfile)
     			fieldnames = reader.fieldnames
+			# create a new csv file and write content
+    			with open('/home/xp14/Blue_project/blue_resist_test/data/new_test.csv','a') as newfile:
+				newwriter = csv.DictWriter(newfile,fieldnames=fieldnames)
+				newwriter.writeheader()
+        			for row in reader:
+					result.append(row)
+					newwriter.writerow(row)
+        			newfile.close()
+				
 #		 with open('/home/xp14/Blue_project/blue_resist_test/data/%s.csv'%(from_field),'a') as csvfile:  
 #    			csvfile.write('\n')
 #    			csvfile.close()
@@ -105,25 +115,25 @@ def test_query(request):
 # add new info
     		 	spamwriter.writerow({'Agar_ID':'%s'%(ID),'Media':'%s'%(media),'Temp':'%s'%(temp),'CTX':'%s'%(ctx)})
     			csvfile.close()
-		 
-                 book = xlwt.Workbook()
-                 sheet1 = book.add_sheet('test666')
-                 row = 0
-                 col = 0
-                 for key in query.keys():
-                     row += 1
-                     sheet1.write(row,col,key)
-                     for item in query[key]:
-                         sheet1.write(row,col+1,item)
-                         row += 1
 
-#                 for index, value in query.items():
-#                      sheet1.write(index,value)
-                 book.save('output.xls')
+# save to a new xls (maybe no use)
+#                 book = xlwt.Workbook()
+#                 sheet1 = book.add_sheet('test666')
+#                 row = 0
+#                 col = 0
+#                 for key in query.keys():
+#                     row += 1
+#                     sheet1.write(row,col,key)
+#                     for item in query[key]:
+#                         sheet1.write(row,col+1,item)
+#                         row += 1
+#                 book.save('output.xls')
+
+
 #                 query = 'SELECT ' + select + ' FROM ' + from_field + ' WHERE ' + where + ' LIMIT ' + limit
                  try:
 #                        result = execute_query(query)
-                        result = [{'parent_id': None, 'id': 54360982}, {'parent_id': None, 'id': 54360880}]
+#                        result = [{'parent_id': None, 'id': 54360982}, {'parent_id': None, 'id': 54360880}]#a test example
                         colnames = result[0].keys
                         num_rows = len(result)
 #                        return render(request, 'analysis/your-query.html', {'query':'abcde', 'num_rows':'5', 'result':'2345', 'colnames':'23333'})
