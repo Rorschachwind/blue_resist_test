@@ -4,11 +4,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 import inspect
-from .forms import CustomQueryForm, QueryDropdownForm, FillQueryForm, MapForm
-from .models import QueryDropdown
 from django.db import connection
-import xlwt
-import csv
+
 
 query_dict = {'1':'SELECT site_id, cfu, ctx FROM plate JOIN agar ON plate.agar_id = agar.agar_id', '2':'two'}
 
