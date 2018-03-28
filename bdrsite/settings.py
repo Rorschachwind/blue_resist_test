@@ -37,6 +37,7 @@ ALLOWED_HOSTS = ['vcm-3101.vm.duke.edu','localhost','127.0.0.1']
 INSTALLED_APPS = [
     'database.apps.DatabaseConfig',
     'analysis.apps.AnalysisConfig',
+    'tutorial.apps.TutorialConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
