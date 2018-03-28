@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+	{% include 'bdrsite/header.html' %}
+	<body>
+		{% include 'bdrsite/nav.html' %}
+		<!-- Main -->
+		<section id="main" class="wrapper">
+			<div class="container">
+				<header class="major special">
+					<h2 class = "test00">Analysis</h2>
+					<p>Select or enter a query.</p>
+				</header>
+				
+				<style type = "text/css">
+					h2.test00
+					{
+						color:red;
+					}
+				</style>
+					     
+
+				<!-- Fill In Query Form -->
+				<h2> Fill in Query: </h2>
+				<form action="your-query/" method="post">
+					{% csrf_token %}
+					{{ fill_sql_form }}
+					<br>
+					<input type="submit" value="Submit"/>
+				</form>
+			
+				<!-- Custom Query Form -->
+				<br>
+				<h2> Custom Query Text: </h2>
+				<form action="your-custom-query/" method="post">
+					{% csrf_token %}
+					{{ custom_sql_form }}
+					<br>
+					<input type="submit" value="Submit"/>
+				</form>
+
+				<!-- Dropdown Query Form -->
+				<br>
+				<h2> Preselected Query Visualization </h2>
+				<form action="your-selection/" method="post">
+					{% csrf_token %}
+					{{ dropdown_form }}
+					<br>
+					<input type="submit" value="Submit"/>
+				</form>
+
+				<!-- Google Maps -->
+				<br>
+				<h2> Location Analysis </h2>
+				<form action="map/" method="post">
+					{% csrf_token %}
+					{{ map_form }}
+					<br>
+					<input type="submit" value="Go"/>
+				</form>
+
+			</div>
+		</section>
+		
+		{% include 'bdrsite/footer.html' %}
+		{% include 'bdrsite/scripts.html' %}
+	</body>
+</html>
