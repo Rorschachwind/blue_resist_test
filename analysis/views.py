@@ -68,7 +68,7 @@ def get_query(request):
 			result = execute_query(query)
 			colnames = result[0].keys
 			num_rows = len(result)
-			return render(request, 'analysis/your-query.html', {'query':query, 'num_rows':num_rows, 'result':result, 'colnames':colnames})
+			return render(request, 'analysis/query.html', {'query':query, 'num_rows':num_rows, 'result':result, 'colnames':colnames})
 		except:
 			return HttpResponse("There were one or more errors????????? in your query. Please try again.")
 	else:
@@ -146,7 +146,7 @@ def test_query(request):
 #         result=[{'parent_id': None, 'id': 54360982}, {'parent_id': None, 'id': 54360880}]
 #         colnames = result[0].keys
 #         num_rows = len(result)
-                        return render(request, 'analysis/your-query.html', {'num_rows':num_rows, 'result':result, 'colnames':colnames})
+                        return render(request, 'analysis/query.html', {'num_rows':num_rows, 'result':result, 'colnames':colnames})
                  except:
                         return HttpResponse("There were one or more errors????????? in your query. Please try again.")
 #         else:
