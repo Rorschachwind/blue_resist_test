@@ -18,43 +18,44 @@
 						color:Blue;
 					}
 				</style>
-				
+			</div>
+			
+			<div class="container">	
 				<li class = "fontpage">
-					<a class = "cover" href ="002.jpg">
-						<link class = "fontpic" type = "image/jpg" href = "003.jpg">
-					</a>
+
 					<div class = "cov-info">
-						<span class ="title">
-							<a class = "linkweb" href = "002.jpg">What is the web about?</a> 
-						</span>
+						<form class ="title" action = "about/" >
+							<input class = "linkweb" type = "submit" value = "What is the web about?"> 
+						</form>
+						<br>
+					</div>
+				</li>	
+			</div>
+		
+
+			<div class="container">
+				<li class = "fontpage">
+					<div class = "cov-info">
+						<form class ="title" action = "learn/" >
+							<input class = "linkweb" type ="submit" value ="What can I learn?">
+						</form>
 						<br>
 					</div>
 				</li>
+			</div>
 
-
+			<div class="container">
 				<li class = "fontpage">
-					<a class = "cover" href ="002.jpg">
-						<link class = "fontpic" type = "image/jpg" href = "003.jpg">
-					</a>
 					<div class = "cov-info">
-						<span class ="title">
-							<a class = "linkweb" href = "002.jpg">What can I learn?</a>
-						</span>
+						<form class ="title" action="contribute/" >
+							<input class = "linkweb" type = "submit" value ="How can I contribute?">
+						</form>
 						<br>
 					</div>
 				</li>
+			</div>
 
-				<li class = "fontpage">
-					<a class = "cover" href ="002.jpg">
-						<link class = "fontpic" type = "image/jpg" href = "003.jpg">
-					</a>
-					<div class = "cov-info">
-						<span class ="title">
-							<a class = "linkweb" href = "002.jpg">How can I contribute?</a>
-						</span>
-						<br>
-					</div>
-				</li>
+		</section>
 
 				<!-- float: left can make the item inline -->
 
@@ -90,12 +91,12 @@
 					padding-right: 20px;
 				}
 
-				a.linkweb > span.title
+				input.linkweb > form.title
 				{
 					display:inline-block;
 				}
 
-				a.linkweb:link, a.linkweb:visited
+				input.linkweb:link, input.linkweb:visited
 				{
 					display:inline-block;
 					border-radius: 10px;
@@ -104,22 +105,21 @@
 					font-weight:bolder;
 					font-size: 20px;
 					background-color: #87CEFA;
-				    text-align:center;
-				    padding-top:20px;
+				    	text-align:center;
+				    	padding-top:20px;
 					padding-bottom: 20px;
 					padding-left:50px;
 					padding-right: 50px;
-				    text-decoration: none;
-				    text-transform: uppercase;
+				    	text-decoration: none;
+				    	text-transform: uppercase;
 				}
 
-				a.linkweb:hover, a.linkweb:active
+				input.linkweb:hover, input.linkweb:active
 				{
 					background-color: #1E90FF;
 				}
 				</style>
-			</div>
-		</section>
+		
                 
 
                 
