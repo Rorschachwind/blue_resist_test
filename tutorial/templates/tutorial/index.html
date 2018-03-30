@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 
-<html>
 	{% include 'bdrsite/header.html' %}
 	<body>
 		{% include 'bdrsite/nav.html' %}
@@ -11,49 +10,25 @@
 					<h2 class = "test00">Tutorial</h2>
 					<p>More infromations coming soon!!</p>
 				</header>
-				
-				<style type = "text/css">
-					h2.test00
-					{
-						color:Blue;
-					}
-				</style>
+		
+		
+	
+						<form action = "about/" >
+							<input type = "submit" value = "What is the web about?"> 
+						</form>
+						<br>
+			
+						<form action = "learn/" >
+							<input type ="submit" value ="What can I learn?">
+						</form>
+						<br>
+					
+						<form action="contribute/" >
+							<input type = "submit" value ="How can I contribute?">
+						</form>
+						<br>
 			</div>
 			
-			<div class="container">	
-				<li class = "fontpage">
-
-					<div class = "cov-info">
-						<form class ="title" action = "about/" >
-							<input class = "linkweb" type = "submit" value = "What is the web about?"> 
-						</form>
-						<br>
-					</div>
-				</li>	
-			</div>
-		
-
-			<div class="container">
-				<li class = "fontpage">
-					<div class = "cov-info">
-						<form class ="title" action = "learn/" >
-							<input class = "linkweb" type ="submit" value ="What can I learn?">
-						</form>
-						<br>
-					</div>
-				</li>
-			</div>
-
-			<div class="container">
-				<li class = "fontpage">
-					<div class = "cov-info">
-						<form class ="title" action="contribute/" >
-							<input class = "linkweb" type = "submit" value ="How can I contribute?">
-						</form>
-						<br>
-					</div>
-				</li>
-			</div>
 
 		</section>
 
@@ -68,6 +43,7 @@
 					float:left; 
 					margin-left:auto;
 					margin-right:auto;
+					text-align:center;
 
 				}
 
@@ -78,7 +54,10 @@
 					margin-right:auto;
 
 				}
-
+				div.container
+				{
+					text-align:center;
+				}
 				div.cov-info
 				{
 					list-style-type: none;
@@ -89,6 +68,7 @@
 					padding-bottom: 20px;
 					padding-left:20px;
 					padding-right: 20px;
+					text-align:center;
 				}
 
 				input.linkweb > form.title
