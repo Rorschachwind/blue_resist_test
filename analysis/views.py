@@ -7,6 +7,7 @@ import inspect
 from .forms import CustomQueryForm, QueryDropdownForm, FillQueryForm, MapForm
 from .models import QueryDropdown
 from django.db import connection
+from django.template import RequestContext
 import xlwt
 import csv
 
@@ -68,7 +69,7 @@ def get_query(request):
 			result = execute_query(query)
 			colnames = result[0].keys
 			num_rows = len(result)
-			return render(request, 'analysis/query.html', {'query':query, 'num_rows':num_rows, 'result':result, 'colnames':colnames})
+			return render(request, 'analysis/your-query.html', {'query':query, 'num_rows':num_rows, 'result':result, 'colnames':colnames})
 		except:
 			return HttpResponse("There were one or more errors????????? in your query. Please try again.")
 	else:
@@ -153,10 +154,14 @@ def test_query(request):
 #                return HttpResponse("Could not execute query.")
 #         query=str(sql_form)
 #         return render(request,'analysis/your-query.html',{'colnames':'233333'})
-        
+
+# test to save files
+def save_query(request):
+	return render(request,'analysis/save.html',RequestContext(request))        
 # GOOGLE MAP 
 def get_map(request):
 	return render(request, 'analysis/map.html')
+#	return HttpResponse("Save successful")	
 
 def execute_query(query):
 	with connection.cursor() as cursor:

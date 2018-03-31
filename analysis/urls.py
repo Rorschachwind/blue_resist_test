@@ -8,6 +8,7 @@ urlpatterns = [
     url(r'^your-selection/', views.get_selection),
     url(r'^your-query/', views.test_query),
     url(r'^map/', views.get_map),
+    url(r'^save/',views.save_query),
 ]
 
 # change get_query to test_query

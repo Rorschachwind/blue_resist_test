@@ -2,7 +2,31 @@
 	{% include 'bdrsite/header.html' %}
 	<body>
 		{% include 'bdrsite/nav.html' %}
-		<p>New contribution information coming soon!</p>
+		<section id="main" class="wrapper">
+			<div class="container">
+					<h3>To begin with, there are some background knowledge you need to know:</h3>
+					<h4><li>What is pythonanywhere?</li></h4>
+					<p>Our website is developed basing on pythonanywhere webserver. After logging into the account, you will be led to Dashboard. This Dashboard is the background control for our website.
+Click “WEB” tab and you will see our website’s name:
+bluedevilresistome.pythonanywhere.com. Anything you change from the background control will be reflected on this website. 
+Just regard it as a “virtual” computer! You can install software, create folders and files from Bash Consoles as on your local computer. On this virtual computer, we installed Django and developed website.</p>
+					<br>
+					<h4><li>What is Django framework?</li></h4>
+					<p>Our web is based on Django framework. A basic understanding on how Django works would be very helpful for a beginner. More information can be found on Django tutorial, there you will learn how to use Django to write first app.</p>
+					<br>
+					<h4><li>How to use Github?</li></h4>
+					<p>GitHub is a powerful tool to record and update our codes. Instead of directly editing code from Bash Consoles in pythonanywhere, we usually download the complete repository from GitHub to our own computer for local test. 
+Our pythonanywhere account mentioned above has been linked to GitHub account. You can clone the repository to Bash Console if anything new added, and push the updated repository to GitHub if you do change something from Bash Consoles. 
+GitHub provides detailed tutorials on how to use git command from terminal.</p>
+					<br>
+					<h4><li>How to use virtual machine (VM) for local development?</li></h4>
+					<p>For local test, if you don’t want to install too many new tools on your local computer, a virtual machine can be helpful. Duke university provides students with one VM container on vcm.duke.edu. Here is a brief construction of how to establish a virtual machine for local test.</p>
+					<br>
+                               		<ul class = "actions">
+                                        	<li><a href = "/tutorial" class = "button special">Back</a></li>
+                                	</ul>
+			</div>
+		</section>
 		{% include 'bdrsite/footer.html' %}
 		{% include 'bdrsite/scripts.html' %}
 	</body>

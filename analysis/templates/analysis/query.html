@@ -16,10 +16,9 @@
 					</ul>
 					
 					<br>
-					<ul class="actions">
-					        <li><input type = "submit" value = "Save"/></li>
-
-				        </ul>
+					<form action = "save/">
+					        <input type = "submit" value = "Save">				       
+					</form>
 				</header>
 			</div>	
 
@@ -34,44 +33,49 @@
 			{% endif %}		
 
 			<!-- returned data -->
-			<div class="container">
-				<div class="table-wrapper">
-					<table>
-						<thead>
-							<tr>
-								{% if colnames %}
-									{% for colname in colnames %}
-										<th>{{ colname }}</th>
-							    	{% endfor %}
+
+				
+				<div class="container">
+					<div class="table-wrapper">
+						<table>
+							<thead>
+								<tr>
+									{% if colnames %}
+										{% for colname in colnames %}
+											<th>{{ colname }}</th>
+							    		{% endfor %}
+									{% else %}
+										<th>Could not find column headers.</th>
+									{% endif %}
+								
+								</tr>
+							</thead>
+							<tbody>
+								{% if result %}
+									{% for row in result%}
+										<tr>
+										{% for key, value in row.items %}
+											<td>{{ value }}</td>
+										{% endfor %}
+										</tr>
+									{% endfor %}
 								{% else %}
-									<th>Could not find column headers.</th>
+									<tr>
+									     	   <td>Zero rows found.</td>
+							   	        </tr>
 								{% endif %}
 								
-							</tr>
-						</thead>
-						<tbody>
-							{% if result %}
-								{% for row in result%}
-									<tr>
-									{% for key, value in row.items %}
-										<td>{{ value }}</td>
-									{% endfor %}
-									</tr>
-								{% endfor %}
-							{% else %}
-								<tr>
-							        <td>Zero rows found.</td>
-							    </tr>
-							{% endif %}
-							
-						</tbody>
-					</table>
+							</tbody>
+						</table>
+					</div>
 				</div>
-			</div>
-			
-			        
+				<br>
+<!--			<form action = "save/">
+				<input type = "submit" value = "Save"/>
+			</form>
+-->			        
 		</section>
 		{% include 'bdrsite/footer.html' %}
 		{% include 'bdrsite/scripts.html' %}
 	</body>
-</html>
+</html>	
