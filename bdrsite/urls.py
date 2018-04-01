@@ -21,7 +21,7 @@ urlpatterns = [
 	url(r'^$', views.index, name='index'),
     url(r'^database/', include('database.urls')),
     url(r'^analysis/', include('analysis.urls')),
-    url(r'^tutorial/',include('tutorial.urls')),
+    url(r'^tutorial/',include('tutorial.urls',namespace = 'tutorial')),
     url(r'^admin/', admin.site.urls),
 ]
 

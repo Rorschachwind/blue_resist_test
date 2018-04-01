@@ -19,4 +19,5 @@ def learn(request):
 
 def contribute(request):
     return render(request,'tutorial/contribute.html')
-
+def run_vm(request):
+    return render(request, 'tutorial/run_vm.html')
