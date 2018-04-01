@@ -22,6 +22,10 @@ class FillQueryForm(forms.Form):
 	where = forms.CharField(label="WHERE:", widget=forms.TextInput(attrs={'placeholder': 'Conditions on column values, separated by AND. Leave blank if none.'}))
 	limit = forms.CharField(label="LIMIT:", widget=forms.TextInput(attrs={'placeholder': 'Numerical value limiting number of rows returned.'}))
 
+class saveForm(forms.Form):
+	colname = forms.CharField(max_length = 100)
+	value = forms.CharField(max_length = 100) 
+
 class MapForm(forms.Form):
 	print("hello")
 	# empty form for now, only has submit button 

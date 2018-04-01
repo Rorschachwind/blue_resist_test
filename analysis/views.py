@@ -4,6 +4,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 import inspect
+from .forms import saveForm
 from .forms import CustomQueryForm, QueryDropdownForm, FillQueryForm, MapForm
 from .models import QueryDropdown
 from django.db import connection
@@ -157,7 +158,12 @@ def test_query(request):
 
 # test to save files
 def save_query(request):
-	return render(request,'analysis/save.html',RequestContext(request))        
+	save_form=saveForm(request.POST)
+        if save_form.is_valid():
+		col = save_form.cleaned_data['colname']	
+		return render(request,'analysis/save.html',{col},RequestContext(request))
+	else:
+		return HttpResponse("Fail")        
 # GOOGLE MAP 
 def get_map(request):
 	return render(request, 'analysis/map.html')
