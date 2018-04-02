@@ -91,6 +91,7 @@ def test_query(request):
                  from_field = sql_form.cleaned_data['from_field']
                  where = sql_form.cleaned_data['where']
                  limit = sql_form.cleaned_data['limit']
+		 save = sql_form.cleaned_data['save']
                  query = {'SELECT':[select], 'FROM':[from_field], 'WHERE':[where], 'LIMIT':[limit]}
 		
 		#add a new test data to csv file
