@@ -144,10 +144,13 @@ def test_query(request):
                  try:
 #                        result = execute_query(query)
 #                        result = [{'parent_id': None, 'id': 54360982}, {'parent_id': None, 'id': 54360880}]#a test example
-                        colnames = result[0].keys
-                        num_rows = len(result)
-#                        return render(request, 'analysis/your-query.html', {'query':'abcde', 'num_rows':'5', 'result':'2345', 'colnames':'23333'})
-         
+                        if save == True:
+		
+				colnames = result[0].keys
+                        	num_rows = len(result)
+#                        	return render(request, 'analysis/your-query.html', {'query':'abcde', 'num_rows':'5', 'result':'2345', 'colnames':'23333'})
+         		else:
+				return HttpResponse("Do not need to save")
 #         result=[{'parent_id': None, 'id': 54360982}, {'parent_id': None, 'id': 54360880}]
 #         colnames = result[0].keys
 #         num_rows = len(result)
