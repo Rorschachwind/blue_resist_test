@@ -6,9 +6,11 @@ from django.http import HttpResponseRedirect
 import inspect
 from .forms import saveForm
 from .forms import CustomQueryForm, QueryDropdownForm, FillQueryForm, MapForm
-from .models import QueryDropdown
+from .models import QueryDropdown, SaveTable
+from .tables import DataTable
 from django.db import connection
 from django.template import RequestContext
+from django_tables2 import RequestConfig
 import xlwt
 import csv
 
@@ -158,12 +160,20 @@ def test_query(request):
 
 # test to save files
 def save_query(request):
-	save_form=saveForm(request.POST)
-        if save_form.is_valid():
-		col = save_form.cleaned_data['colname']	
-		return render(request,'analysis/save.html',{col},RequestContext(request))
-	else:
-		return HttpResponse("Fail")        
+	try:
+		table = DataTable(SaveTable.objects.all())
+		RequestConfig(request).configure(table)
+		return render(request,'analysis/save.html',{'table':table})
+	except:
+		return HttpResponse("fail")
+
+#	save_form=saveForm(request.POST)
+#        if save_form.is_valid():
+#		col = save_form.cleaned_data['colname']	
+#		return render(request,'analysis/save.html',{col},RequestContext(request))
+#	else:
+#		return HttpResponse("Fail")
+        
 # GOOGLE MAP 
 def get_map(request):
 	return render(request, 'analysis/map.html')

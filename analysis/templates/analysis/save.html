@@ -1,5 +1,8 @@
-<!DOCTYPE html>
-Save successfully!!!
 
-{{ col }}
+{% load render_table from django_tables2 %}
+<!DOCTYPE html>
+
+	<body>
+		{% render_table table %}
+	</body>
 </html>

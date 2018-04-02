@@ -9,3 +9,7 @@ QUERY_CHOICES = (
 
 class QueryDropdown(models.Model):
 	query = models.CharField(max_length=200,choices=QUERY_CHOICES)
+
+class SaveTable(models.Model):
+	colname = models.CharField(max_length = 200)
+	value = models.CharField(max_length = 200)
