@@ -21,7 +21,8 @@ class FillQueryForm(forms.Form):
 	from_field = forms.CharField(label="FROM:", widget=forms.TextInput(attrs={'placeholder': 'Table name(s). If inner join, separate using commas.'}))
 	where = forms.CharField(label="WHERE:", widget=forms.TextInput(attrs={'placeholder': 'Conditions on column values, separated by AND. Leave blank if none.'}))
 	limit = forms.CharField(label="LIMIT:", widget=forms.TextInput(attrs={'placeholder': 'Numerical value limiting number of rows returned.'}))
-
+	save = forms.CharField(label="SAVE:",widget=forms.TextInput(attrs={'placeholder': 'Save the file or not?'}))
+	
 class saveForm(forms.Form):
 	colname = forms.CharField(max_length = 100)
 	value = forms.CharField(max_length = 100) 
