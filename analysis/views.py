@@ -144,7 +144,7 @@ def test_query(request):
                  try:
 #                        result = execute_query(query)
 #                        result = [{'parent_id': None, 'id': 54360982}, {'parent_id': None, 'id': 54360880}]#a test example
-                        if save == True:
+                        if save == 'True':
 		
 				colnames = result[0].keys
                         	num_rows = len(result)
