@@ -4,15 +4,17 @@
 		{% include 'bdrsite/nav.html' %}
 		<section id="main" class="wrapper">
 			<div class="container">
-            <p>Open your terminal.</p>
+            <h3>Open your terminal.</h3>
             <p>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>></p>
+	    <h4>
             <p>-This is based on Mac iOS system.</p>
             <p>-This is based on virtual machine from Duke University VCM.</p>
             <p>-The name for the VM depends on your NetID, here the NetID is “xp14”, the VM container is “vcm-3101.vm.duke.edu”.</p>
             <p>-This tutorial contain information of how to create folder, install django toolbox and create initial website using django command.</p>
             <p>-You can also try this basing on your local computer, in that case, you will not need “ssh” things. Instead, create a new folder for construction of web in your favorite pathway locally.</p>
             <p>-“virtualenv” is recommended, this will create an isolated environment for your target folder. Under this environment, tools installed will not influence your local computer.</p>
-            <p>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>></p>
+            </h4>
+	    <p>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>></p>
             <p>➜  ~ ssh xp14@vcm-3101.vm.duke.edu      </p>
             <p>xp14@vcm-3101:~$ sudo apt-get install python-pip</p>
             <p>xp14@vcm-3101:~$ sudo pip install virtualenv</p>
@@ -28,8 +30,11 @@
             <p>(Blue_project) xp14@vcm-3101:~/Blue_project/mysite$ python manage.py migrate</p>
             <p>(Blue_project) xp14@vcm-3101:~/Blue_project/mysite$ python manage.py runserver vcm-3101.vm.duke.edu:8000</p>
             <p>>>>>>>>>>>>>>>>>>>>>>>>>>></p>
-            <p>From local web server, open “vcm-3101.vm.duke.edu”, and you will see the initial django webpage.</p>
-            
+            <h4>From local web server, open “vcm-3101.vm.duke.edu”, and you will see the initial django webpage.</h4>
+            <br>
+                               		<ul class = "actions">
+                                        	<li><a href = "/tutorial/contribute" class = "button special">Back</a></li>
+                                	</ul>
         </div>
      </section>
      {% include 'bdrsite/footer.html' %}

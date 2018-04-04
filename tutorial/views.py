@@ -22,4 +22,4 @@ def contribute(request):
 def run_vm(request):
     return render(request, 'tutorial/run_vm.html')
 def tool_install(request):
-    return render(request, 'tutorial/tool_install.html')
+    return render(request, 'tutorial/tools_installation.html')
